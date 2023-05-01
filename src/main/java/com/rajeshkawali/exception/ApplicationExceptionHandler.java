@@ -30,7 +30,7 @@ public class ApplicationExceptionHandler {
     @ExceptionHandler(EmployeeNotFoundException.class)
     public Map<String, String> handleBusinessException(EmployeeNotFoundException ex) {
         Map<String, String> errorMap = new HashMap<>();
-        errorMap.put("errorMessage", ex.getMessage());
+        errorMap.put("errorMessage", "Internal error occurred");
         return errorMap;
     }
 

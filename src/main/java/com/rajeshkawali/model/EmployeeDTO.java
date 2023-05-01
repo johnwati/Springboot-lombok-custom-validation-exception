@@ -4,10 +4,22 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.rajeshkawali.validation.GenderEitherOneOf;
 import com.rajeshkawali.validation.ValidateNationality;
 import jakarta.validation.constraints.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PastOrPresent;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 
+//import javax.validation.constraints.*;
+//import javax.validation.constraints.NotBlank;
 import java.util.Date;
 
 /**
@@ -16,6 +28,7 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@ConfigurationProperties(prefix = "user.fields")
 public class EmployeeDTO {
 
     private Long id;

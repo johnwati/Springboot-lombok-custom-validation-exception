@@ -1,5 +1,6 @@
 package com.rajeshkawali.service;
 
+import com.rajeshkawali.exception.EmployeeNotFoundException;
 import com.rajeshkawali.model.EmployeeDTO;
 import com.rajeshkawali.model.Person;
 
@@ -14,5 +15,5 @@ public interface EmployeeService {
 
     public List<EmployeeDTO> getAllEmployee();
 
-    public EmployeeDTO findByEmployeeId(Long id);
+    public EmployeeDTO findByEmployeeId(Long id) throws EmployeeNotFoundException;
 }

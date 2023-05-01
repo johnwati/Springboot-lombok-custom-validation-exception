@@ -3,6 +3,7 @@ package com.rajeshkawali.model;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 
 import java.util.List;
 
@@ -15,6 +16,7 @@ import java.util.List;
 @EqualsAndHashCode
 @ToString
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@ConfigurationProperties(prefix = "user.fields")
 public class Person {
 
     private String id;

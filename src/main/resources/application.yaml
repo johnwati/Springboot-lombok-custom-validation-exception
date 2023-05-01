@@ -1,0 +1,11 @@
+user:
+  fields:
+    phone:
+      type: string
+      size:
+        min: 10
+        max: 12
+      required: true
+    county:
+      type: string
+      required: true

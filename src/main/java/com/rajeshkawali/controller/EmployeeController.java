@@ -1,5 +1,6 @@
 package com.rajeshkawali.controller;
 
+import com.rajeshkawali.exception.EmployeeNotFoundException;
 import com.rajeshkawali.model.EmployeeDTO;
 import com.rajeshkawali.model.Person;
 import com.rajeshkawali.service.EmployeeService;
@@ -41,7 +42,7 @@ public class EmployeeController {
     }
 
     @GetMapping(value = "/findByEmployeeId/{id}")
-    public EmployeeDTO findByEmployeeId(@PathVariable Long id) {
+    public EmployeeDTO findByEmployeeId(@PathVariable Long id) throws EmployeeNotFoundException {
         String _function = ".findByEmployeeId";
         log.info(CLASS_NAME + _function + "::ENTER");
         return service.findByEmployeeId(id);

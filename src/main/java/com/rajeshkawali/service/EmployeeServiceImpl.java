@@ -1,6 +1,7 @@
 package com.rajeshkawali.service;
 
 import com.rajeshkawali.entity.Employee;
+import com.rajeshkawali.exception.EmployeeNotFoundException;
 import com.rajeshkawali.model.EmployeeDTO;
 import com.rajeshkawali.model.Person;
 import com.rajeshkawali.repository.EmployeeRepository;
@@ -57,11 +58,21 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public EmployeeDTO findByEmployeeId(Long id) {
+    public EmployeeDTO findByEmployeeId(Long id) throws EmployeeNotFoundException {
         String _function = ".findByEmployeeId";
         log.info(CLASS_NAME + _function + "::ENTER");
         EmployeeDTO employeeDto = new EmployeeDTO();
+//        Optional<Employee> employee = repository.findById(id).
+//                orElseThrow(() -> new EmployeeNotFoundException("Employee with ID " + id + " not found"));
         Optional<Employee> employee = repository.findById(id);
+        if (employee.isPresent()) {
+            Employee foundEmployee = employee.get();
+            // Do something with the foundEmployee object
+        } else {
+            throw new EmployeeNotFoundException("Employee with ID " + id + " not found");
+        }
+
+
         BeanUtils.copyProperties(employee.get(), employeeDto);
         log.info(CLASS_NAME + _function + "::EXIT: employee: {}", employeeDto);
         return employeeDto;
